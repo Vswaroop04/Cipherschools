@@ -4,8 +4,8 @@ This is a web application built using the MERN stack that allows users to create
 
 The application is currently hosted at:
 
- [Azure (use Incognito)](http://vswaroop04.centralindia.cloudapp.azure.com:3003/)
- [Netlify (Alternative)](https://rad-puffpuff-2b16cc.netlify.app/)
+ 1. [Azure (use Incognito)](http://vswaroop04.centralindia.cloudapp.azure.com:3003/)
+ 2. [Netlify (Alternative)](https://rad-puffpuff-2b16cc.netlify.app/)
 
 
 ## Technologies
