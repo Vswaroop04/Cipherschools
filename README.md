@@ -30,6 +30,17 @@ The following features are available in the application:
 
 ## Getting Started with React and Node
 
+
+## Prerequisites
+Things that you need to run this app:
+
+
+- **[Node Package Manager](https://www.npmjs.com/)**
+- **[Mongodb(Optional)](https://www.mongodb.com/)**
+- **[Git(Optional)](https://git-scm.com/)**
+
+
+
 Follow these steps to get started with the application:
 
 1. Clone the repository:  `git clone https://github.com/vswaroop04/.Cipherschools.git`
@@ -41,16 +52,16 @@ Follow these steps to get started with the application:
   ``` .env
    mongoUrl=<mongodb_uri>
    JWT_SECRET=<jwt_secret_key>
-                           ```
+  ```
 
  
 4. Start the server and the client: 'cd Frontend && node start`  &&  `cd Backend && node App.js`
 
 
 
-
-
-
+<p align="center">
+  Made with ❤ by VINKS
+</p>
 
  
 
