@@ -9,6 +9,8 @@ const ProfessionalInfo = (props) => {
   const [highestEducation, setHighestEducation] = useState('')
   const [currentStatus, setCurrentStatus] = useState('')
 
+  let modeofpi = localStorage.getItem('darkMode')
+
   useEffect(() => {
     if (localStorage.getItem('darkMode') === 'true') {
       const labels = document.querySelectorAll('.professional-info label')
@@ -22,7 +24,7 @@ const ProfessionalInfo = (props) => {
         editMode ? (label.style.color = 'black') : (label.style.color = 'black')
       })
     }
-  }, [editMode, localStorage.getItem('darkMode')])
+  }, [editMode, modeofpi])
 
   useEffect(() => {
     setHighestEducation(data?.founduser?.professional?.Education)

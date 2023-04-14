@@ -34,7 +34,7 @@ function App(props) {
     }
 
     getdetails()
-  }, [])
+  }, [Host])
 
   const darkMode = props.darkmode
   console.log(darkMode)

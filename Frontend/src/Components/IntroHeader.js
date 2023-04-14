@@ -6,7 +6,6 @@ const imgsrc =
 
 export default function IntroHeader(props) {
   const Host = process.env.REACT_APP_URL
-  const [imageUrl, setImageUrl] = useState('')
 
   const data = props.data
   console.log(data)
@@ -47,7 +46,6 @@ export default function IntroHeader(props) {
 
       console.log(data)
       console.log(data.secure_url)
-      setImageUrl(data.secure_url)
 
       if (data.secure_url) {
         const response = await fetch(`${Host}/updatepic`, {

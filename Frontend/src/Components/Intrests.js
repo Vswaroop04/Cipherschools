@@ -7,84 +7,47 @@ function Interests(props) {
   const [editMode, setEditMode] = useState(false)
   const [interestsDisplay, setinterestsDisplay] = useState('')
 
-  const [interests, setInterests] = useState([
+  const interests = [
     { id: 1, name: 'App' },
     { id: 2, name: 'Web development' },
     { id: 3, name: 'Programming' },
     { id: 4, name: 'DSA' },
-  ])
+  ]
 
-  const [selectedinterests, setselectedInterests] = useState([])
   const [selectedInterests, setSelectedInterests] = useState([])
 
   useEffect(() => {
-    // Simulating response from server
-    const responseInterests = [
-      { id: 1, name: 'App' },
-      { id: 2, name: 'Web development' },
-    ]
-    // Find interests not present in response and add them to selected interests
-    const newInterests = interests.filter(
-      (interest) => !responseInterests.find((i) => i.name === interest.name),
-    )
-    setSelectedInterests([...newInterests.map((i) => i.name)])
-  }, [])
+    setSelectedInterests(data?.founduser?.interests || [])
+  }, [data])
 
-  useEffect(() => {
-    // Simulating response from server
-    const responseInterests = [
-      { id: 1, name: 'App' },
-      { id: 2, name: 'Web development' },
-    ]
-    // Find interests not present in response and add them to selected interests
-    const newInterests = interests.filter(
-      (interest) => !responseInterests.find((i) => i.name === interest.name),
-    )
-    setSelectedInterests((prevSelectedInterests) => {
-      const updatedSelectedInterests = [...prevSelectedInterests]
-      newInterests.forEach((interest) => {
-        if (!updatedSelectedInterests.includes(interest.name)) {
-          updatedSelectedInterests.push(interest.name)
-        }
-      })
-      return updatedSelectedInterests
-    })
-  }, [])
   const handleEdit = () => {
     setEditMode(true)
   }
 
   const handleSave = () => {
     setEditMode(false)
-    setselectedInterests(
-      selectedInterests.map((i) => ({ id: interests.length + 1, name: i })),
-    )
-  }
+    const updatedInterests = [...selectedInterests]
+    setSelectedInterests(updatedInterests)
 
-  useEffect(() => {
-    const addInterest = (interest) => {
-      fetch(`${Host}/addInterest`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          authentication: localStorage.getItem('auth-token'),
-        },
-        body: JSON.stringify({ interest: interest }),
+    fetch(`${Host}/addInterest`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        authentication: localStorage.getItem('auth-token'),
+      },
+      body: JSON.stringify({ interests: updatedInterests }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('updateInterests response:', data)
+        // handle the response as needed
       })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('addInterest response:', data)
-          // handle the response as needed
-        })
-        .catch((error) => console.error(error))
-    }
-
-    addInterest(selectedInterests)
-  }, [selectedInterests])
+      .catch((error) => console.error(error))
+  }
 
   const handleCancel = () => {
     setEditMode(false)
-    setSelectedInterests(interests.map((i) => i.name))
+    setSelectedInterests(data?.founduser?.interests || [])
   }
 
   const handleCheckboxChange = (event) => {
@@ -112,13 +75,13 @@ function Interests(props) {
 
   useEffect(() => {
     setinterestsDisplay(
-      data?.founduser?.interests?.map((interest, index) => (
+      selectedInterests.map((interest, index) => (
         <span key={index} className="interest-tag">
           {interest}
         </span>
       )),
     )
-  }, [data, selectedInterests])
+  }, [selectedInterests])
 
   useEffect(() => {
     const labels = document.querySelectorAll('.popup')
@@ -137,11 +100,12 @@ function Interests(props) {
         <div className="popup">
           <div className="popup-inner">
             <h3>Select your interests</h3>
-            <div className="interest- options">{interestOptions}</div>
+            <div className="interest-options">{interestOptions}</div>
             <div className="popup-buttons">
               <button className="save-button" onClick={handleSave}>
                 Save
               </button>
+
               <button className="cancel-button" onClick={handleCancel}>
                 Cancel
               </button>

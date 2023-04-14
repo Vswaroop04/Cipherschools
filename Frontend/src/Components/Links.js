@@ -7,6 +7,8 @@ function OnTheWeb(props) {
   const data = props.data
   console.log(data.founduser?.links)
 
+  let modeoflinks = localStorage.getItem('darkMode')
+
   useEffect(() => {
     setLinks({
       linkedin: data.founduser?.links.linkedin,
@@ -48,7 +50,7 @@ function OnTheWeb(props) {
         editMode ? (label.style.color = 'black') : (label.style.color = 'black')
       })
     }
-  }, [editMode, localStorage.getItem('darkMode')])
+  }, [editMode, modeoflinks])
 
   const handleLinkChange = (event) => {
     if (editMode) {

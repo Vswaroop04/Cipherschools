@@ -3,13 +3,10 @@ import './Followers.css'
 
 const Followers = (props) => {
   const Host = process.env.REACT_APP_URL
-  const [data, setdata] = useState('')
   const [followers, setFollowers] = useState([])
   const [totalFollowers, setTotalFollowers] = useState(0)
 
   useEffect(() => {
-    const id = localStorage.getItem('userid')
-
     const getdetails = async () => {
       const response = await fetch(`${Host}/getFollowers`, {
         method: 'GET',
@@ -27,7 +24,6 @@ const Followers = (props) => {
       const data = await response.json()
 
       console.log(data)
-      setdata(data)
       setFollowers(data)
       let total = 0
       data.forEach((follower) => {
@@ -38,7 +34,7 @@ const Followers = (props) => {
     }
 
     getdetails()
-  }, [])
+  }, [Host])
 
   const toggleFollowing = async (followId, followers) => {
     let following
@@ -80,12 +76,6 @@ const Followers = (props) => {
           : follower,
       ),
     )
-
-    if (following) {
-      setTotalFollowers((prevTotalFollowers) => prevTotalFollowers - 1)
-    } else {
-      setTotalFollowers((prevTotalFollowers) => prevTotalFollowers + 1)
-    }
   }
 
   const renderFollowers = () =>
@@ -95,6 +85,7 @@ const Followers = (props) => {
         <p>{follower.fname}</p>
         <p>{follower.email}</p>
         <p>{follower.followers.length} Followers</p>
+
         <button
           className="edit-button"
           style={{ 'background-color': '#f59c13', color: 'white' }}
@@ -137,6 +128,7 @@ const Followers = (props) => {
         Here Are the list of followers !{' '}
       </p>
 
+      <p> {totalFollowers} Followers </p>
       <div className="followers-grid">{renderFollowers()}</div>
     </div>
   )

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './Signup.css'
-import { json, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function PasswordSection() {
   const Host = process.env.REACT_APP_URL

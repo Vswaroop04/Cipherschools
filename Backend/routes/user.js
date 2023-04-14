@@ -38,23 +38,19 @@ router.put('/updatePersonalDetails', checkloggedin, function (req, res) {
 })
 
 router.put('/addInterest', checkloggedin, function (req, res) {
-  console.log('inside addInterest method ', req.body.interest)
-  user
-    .findByIdAndUpdate(
-      req.user._id,
-      {
-        $set: { interests: req.body.interest },
-      },
-      { new: true },
-    )
-    .exec(function (err, result) {
+  console.log('inside updateInterests method ', req.body.interests)
+  user.findByIdAndUpdate(
+    req.user._id,
+    { $set: { interests: req.body.interests } },
+    { new: true },
+    function (err, result) {
       if (err) {
         return res.status(422).json({ error: err })
       }
-
-      console.log('addInterest:', result)
+      console.log('updateInterests:', result)
       res.status(200).json({ result })
-    })
+    },
+  )
 })
 
 router.get('/getFollowers', checkloggedin, function (req, res) {
