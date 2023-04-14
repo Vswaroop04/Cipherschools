@@ -1,0 +1,87 @@
+:root {
+  --heatmap-color-low: #ffffff;
+  --heatmap-color-medium: #f9b652;
+  --heatmap-color-high: #fa9600;
+}
+
+.heatmap-container {
+  border: 1px solid #ccc;
+  position: relative;
+  padding: 20px;
+}
+
+.heatmap-grid {
+  margin-left: 80px;
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-gap: 1px;
+  width: 90%;
+  height: 180px;
+}
+
+.heatmap-square {
+  cursor: pointer;
+}
+
+.heatmap-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  padding: 4px;
+  background-color: #f9b652;
+  color: #fff;
+  font-size: 14px;
+}
+
+:root {
+  --heatmap-color-low: #ffffff;
+  --heatmap-color-medium: #f9b652;
+  --heatmap-color-high: #fa9600;
+}
+
+.heatmap-container {
+  border: 1px solid #ccc;
+  position: relative;
+  padding: 20px;
+}
+
+.heatmap-grid {
+  margin-left: 80px;
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-gap: 1px;
+  width: 90%;
+  height: 180px;
+}
+
+.heatmap-square {
+  cursor: pointer;
+}
+
+.heatmap-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  padding: 4px;
+  background-color: #f9b652;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  .heatmap-grid {
+    margin-left: 0;
+    width: 100%;
+    grid-template-columns: repeat(26, 1fr);
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heatmap-grid {
+    grid-template-columns: repeat(13, 1fr);
+    height: 90px;
+  }
+}

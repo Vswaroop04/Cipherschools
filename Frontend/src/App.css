@@ -1,0 +1,17 @@
+body {
+  background-color: #f2f5fa;
+  padding: 1px;
+}
+.container {
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app-dark {
+  background-color: #424242;
+  color: #fff;
+}
+

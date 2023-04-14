@@ -1,0 +1,91 @@
+.about-me {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.about-me-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.about-me-heading h2 {
+  margin: 0;
+}
+
+.edit-button4 {
+  background-color: #f59c13;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: large;
+  margin-top: 15px;
+  font-style: bold;
+  margin-right: 10px;
+}
+
+.about-me-text p {
+  margin: 0;
+}
+
+.about-me-text textarea {
+  width: 100%;
+  height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.edit-mode {
+  background-color: #ddd;
+}
+
+/* For screens smaller than 768px (i.e., mobile devices) */
+@media (max-width: 767px) {
+  .about-me {
+    padding: 10px;
+  }
+
+  .about-me-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5px;
+  }
+
+  .about-me-heading h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .edit-button4 {
+    margin-top: 10px;
+    margin-right: 0;
+  }
+
+  .about-me-text textarea {
+    height: 80px;
+    font-size: 16px;
+  }
+
+  .edit-button4 {
+  background-color: #f59c13;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: small;
+  margin-top: 15px;
+  font-style: bold;
+  margin-right: 10px;
+}
+
+}

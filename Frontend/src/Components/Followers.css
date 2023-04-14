@@ -1,0 +1,43 @@
+.followers-grid {
+    margin: 10px;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.follower-box {
+  border: 1px solid #000000;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: calc(20% - 16px);
+    padding: 20px;
+
+}
+
+.follower-box img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.follower-box p {
+  margin-bottom: 5px;
+}
+
+.follower-box button {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.follower-box button:hover {
+  background-color: #1565c0;
+}
