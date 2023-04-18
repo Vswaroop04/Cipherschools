@@ -60,7 +60,7 @@ Follow these steps to get started with the application:
 
 
 <p align="center">
-  Made with ❤ by VINKS
+  Made with ❤ by Vishnu
 </p>
 
  
